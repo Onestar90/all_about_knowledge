@@ -13,6 +13,8 @@
  <typeAlias type="kr.co.sist.aak.domain.admin.EduCategoryManagementDomain" alias="EduCategoryManagementDomain"/>
  
  <typeAlias type="kr.co.sist.aak.domain.admin.MemberManagementDomain" alias="MemberManagementDomain"/>
+ 
+ <typeAlias type="kr.co.sist.aak.domain.instructor.StudentListDomain" alias="StudentListDomain"/>
 </typeAliases>
 
   <environments default="development">
@@ -35,5 +37,7 @@
     <mapper resource="kr/co/sist/aak/mappers/admin_mapper3.xml"/>
  <!-- Member -->   
     <mapper resource="kr/co/sist/aak/mappers/admin_mapper4.xml"/>
+    <!-- studentList -->
+    <mapper resource="kr/co/sist/aak/mappers/instructor_mapper2.xml"/>
   </mappers>
 </configuration>

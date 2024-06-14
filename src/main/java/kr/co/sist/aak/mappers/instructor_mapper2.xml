@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.sist.aak.instructor2">
+	<!-- 전체 수강생리스트 조회 //현재 db에 값없어서 조회안됨 수정필요-->
+	 	<select id="select_studentList_all" resultType="StudentListDomain">
+		SELECT si.STD_ID, si.NAME, ss.SUB_CODE
+        FROM STD_INFO si
+        JOIN STD_SUBJECT ss ON si.STD_ID = ss.STD_ID
+        WHERE ss.SUB_CODE = 'SUB_000001'
+	</select>
+	
+</mapper>

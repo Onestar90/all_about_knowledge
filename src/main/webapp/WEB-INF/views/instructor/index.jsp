@@ -61,7 +61,7 @@
             </li>
             
             <li class="nav-item active">
-                <a class="nav-link" href="studentList">
+                <a class="nav-link" href="studentList.do">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>수강생 관리</span>
                     </a>

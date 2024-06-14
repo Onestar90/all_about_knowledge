@@ -25,6 +25,164 @@
     background: #f5f5f5;
   }
 
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px; /* 사이드바 너비 조정 */
+    background-color: #212529;
+    color: #fff;
+    padding-top: 1rem;
+    overflow-y: auto;
+  }
+
+  .container {
+    margin-left: 250px; /* 사이드바 너비 만큼 컨텐츠를 오른쪽으로 밀어줌 */
+    padding: 2em;
+  }
+
+  .selectbox {
+    position: relative;
+    width: 200px;
+    border: 1px solid #999;
+    z-index: 1;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+  .selectbox.focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  }
+
+  .selectbox:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 0;
+    height: 0;
+    margin-top: -1px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #313131;
+  }
+
+  .selectbox label {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    padding: .5em .5em;
+    color: #333;
+    z-index: -1;
+  }
+
+  .selectbox select {
+    width: 100%;
+    height: auto;
+    line-height: normal;
+    background-color: transparent;
+    font-family: inherit;
+    padding: .8em .5em;
+    border: 0;
+    opacity: 0;
+    appearance: none;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 300px;
+    background: white;
+    border-radius: 20px;
+    padding: 0 10px;
+    border: 1px solid #f9deec;
+    margin-bottom: 1em;
+  }
+
+  .search-txt {
+    flex: 1;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0 10px;
+    color: #797979;
+    font-size: 16px;
+  }
+
+  .search-btn {
+    color: #797979;
+    background: none;
+    border: none;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-box-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1em;
+  }
+
+  .small-selectbox {
+    position: relative;
+    top: -10px;
+    width: 100px;
+    border: 1px solid #999;
+    margin-right: 20px;
+    margin-top: 10px;
+    z-index: 1;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  }
+
+  .small-selectbox.focus {
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  }
+
+  .small-selectbox:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 0;
+    height: 0;
+    margin-top: -1px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #313131;
+  }
+
+  .small-selectbox label {
+    position: absolute;
+    top: 1px;
+    left: 5px;
+    padding: .5em .5em;
+    color: #333;
+    z-index: -1;
+  }
+
+  .small-selectbox select {
+    width: 100%;
+    height: auto;
+    line-height: normal;
+    font-family: inherit;
+    padding: .8em .5em;
+    border: 0;
+    opacity: 0;
+    appearance: none;
+  }
+
+  .table-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
   table {
     border: 1px #a39485 solid;
     font-size: .9em;
@@ -96,160 +254,11 @@
     td {
       border-bottom: 1px solid #e5e5e5;
     }
-  }
 
-  .selectbox {
-    position: relative;
-    width: 200px; /* 너비설정 */
-    border: 1px solid #999; /* 테두리 설정 */
-    z-index: 1;
-    /* focus 효과 */
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  }
-
-  /* focus 효과 */
-  .selectbox.focus {
-    border-color: #66afe9;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-  }
-
-  /* 가상 선택자를 활용 화살표 대체 */
-  .selectbox:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    width: 0;
-    height: 0;
-    margin-top: -1px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #313131;
-  }
-
-  .selectbox label {
-    position: absolute;
-    top: 1px; /* 위치정렬 */
-    left: 5px; /* 위치정렬 */
-    padding: .5em .5em; /* select의 여백 크기 만큼 */
-    color: #333;
-    z-index: -1; /* IE8에서 label이 위치한 곳이 클릭되지 않는 것 해결 */
-  }
-
-  .selectbox select {
-    width: 100%;
-    height: auto;  /* 높이 초기화 */  
-    line-height: normal; /* line-height 초기화 */  
-    font-family: inherit; /* 폰트 상속 */  
-    padding: .8em .5em;  /* 여백과 높이 결정 */  
-    border: 0;
-    opacity: 0;  /* 숨기기 */ 
-    filter: alpha(opacity=0);  /* IE8 숨기기 */
-    -webkit-appearance: none;  /* 네이티브 외형 감추기 */ 
-    -moz-appearance: none;
-    appearance: none;
-  }
-
-  .search-box {
-    display: flex;
-    align-items: center;
-    height: 40px;
-    width: 300px;
-    background: white;
-    border-radius: 20px;
-    padding: 0 10px;
-    border: 1px solid #f9deec;
-    margin-bottom: 1em; /* 다음 요소와의 간격을 위한 여백 추가 */
-  }
-
-  .search-txt {
-    flex: 1;
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0 10px;
-    color: #797979;
-    font-size: 16px;
-  }
-
-  .search-btn {
-    color: #797979;
-    background: none;
-    border: none;
-    font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .search-box-container {
-    display: flex;
-    justify-content: flex-end; /* 검색 상자 전체를 오른쪽 정렬 */
-  }
-
-  .small-selectbox {
-    position: relative;
-     top: -10px;
-    width: 100px; /* 너비설정 (기존의 절반) */
-    border: 1px solid #999; /* 테두리 설정 */
-    margin-right: 20px; /* 검색 상자와의 간격 */
-    margin-top: 10px; /* 검색 상자 위로 이동 */
-    z-index: 1;
-    /* focus 효과 */
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-  }
-
-  /* focus 효과 */
-  .small-selectbox.focus {
-    border-color: #66afe9;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-  }
-
-  /* 가상 선택자를 활용 화살표 대체 */
-  .small-selectbox:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    width: 0;
-    height: 0;
-    margin-top: -1px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #313131;
-  }
-
-  .small-selectbox label {
-    position: absolute;
-    top: 1px; /* 위치정렬 */
-    left: 5px; /* 위치정렬 */
-    padding: .5em .5em; /* select의 여백 크기 만큼 */
-    color: #333;
-    z-index: -1; /* IE8에서 label이 위치한 곳이 클릭되지 않는 것 해결 */
-  }
-
-  .small-selectbox select {
-    width: 100%;
-    height: auto;  /* 높이 초기화 */  
-    line-height: normal; /* line-height 초기화 */  
-    font-family: inherit; /* 폰트 상속 */  
-    padding: .8em .5em;  /* 여백과 높이 결정 */  
-    border: 0;
-    opacity: 0;  /* 숨기기 */ 
-    filter: alpha(opacity=0);  /* IE8 숨기기 */
-    -webkit-appearance: none;  /* 네이티브 외형 감추기 */ 
-    -moz-appearance: none;
-    appearance: none;
+    .container {
+      margin-left: 0;
+      padding: 1em;
+    }
   }
 </style>
 <script type="text/javascript">
@@ -260,57 +269,122 @@
 </script>
 </head>
 <body>
-<div class="selectbox">
-  <select id="select">
-    <option>1</option>
-    <option>2</option>
-  </select>
-</div><br>
-<div class="selectbox">
-  <select id="select">
-    <option>1</option>
-    <option>2</option>
-  </select>
-</div><br>
 
-<div>전체수강인원:</div>
-<div>전체 시험 미응시학생</div>
+<div class="sidebar">
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="instructor_index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">AAk 강사메인</div>
+    </a>
 
-<div class="search-box-container">
-  <div class="small-selectbox">
-    <select id="small-select">
-      <option>A</option>
-      <option>B</option>
-    </select>
-  </div>
-  <form class="search-box" action="" method="get">
-    <input class="search-txt" type="text" name="" placeholder="검색어를 입력하세요.">
-    <button class="search-btn" type="submit">검색</button>
-  </form>
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <ul class="nav flex-column">
+        <li class="nav-item active">
+            <a class="nav-link">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+<span>강의관리</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>강의신청</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>문의사항</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="studentList.do">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>수강생 관리</span>
+            </a>
+        </li>
+    </ul>
 </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th class="id">아이디</th>
-      <th class="name">이름</th>
-      <th class="sub">과목</th>
-      <th class="">학습현황</th>
-      <th class="">합격여부</th>
-      <th class="">시험응시</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>1</td>
-      <td>2</td>
-      <td>3</td>
-      <td>4</td>
-      <td>5</td>
-      <td>6</td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="container">
+    <div class="selectbox">
+        <select id="select">
+            <option>1</option>
+            <option>2</option>
+        </select>
+    </div><br>
+
+    <div class="selectbox">
+        <select id="select">
+            <option>1</option>
+            <option>2</option>
+        </select>
+    </div><br>
+
+    <div>전체수강인원:</div>
+    <div>전체 시험 미응시학생</div>
+
+    <div class="search-box-container">
+        <div class="small-selectbox">
+            <select id="small-select">
+              <option disabled selected>검색조건</option>
+                <option>A</option>
+                <option>B</option>
+            </select>
+        </div>
+        <form class="search-box" action="" method="get">
+            <input class="search-txt" type="text" name="" placeholder="검색어를 입력하세요.">
+            <button class="search-btn" type="submit">검색</button>
+        </form>
+    </div>
+	<a href="notice.do">공지</a>
+  
+<c:catch var="e">
+  
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="id">아이디</th>
+                <th class="name">이름</th>
+                <th class="sub_code">과목</th>
+                <th class="status">학습현황</th>
+                <th class="score">합격여부</th>
+                <th class="Try">시험응시</th>
+            </tr>
+        </thead>
+        <c:if test="${ empty requestScope.listStudent }">
+        <tr><td colspan="5" style="text-align: center">
+        존재하지않음
+        </c:if>
+           <c:forEach var="sld" items="${ requestScope.listStudent }" varStatus="i">
+        <tbody>
+            <tr>
+                <td><c:out value="${ sld.std_id }"/></td>
+                <td><c:out value="${ sld.name }"/></td>
+                <td><c:out value="${ sld.sub_code }"/></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </c:forEach>
+        
+    </table>
+    </c:catch>
+    <c:if test="${ not empty e }">
+		조회없음
+</c:if>
+
+ <!-- Page level custom scripts -->
+    <script src="http://localhost/all_about_knowledge/resources/js/demo/chart-area-demo.js"></script>
+    <script src="http://localhost/all_about_knowledge/resources/js/demo/chart-pie-demo.js"></script>
+</div>
 
 </body>
 </html>

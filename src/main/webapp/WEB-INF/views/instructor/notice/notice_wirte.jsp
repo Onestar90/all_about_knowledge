@@ -25,14 +25,37 @@
     background: #f5f5f5;
   }
 
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px; /* 사이드바 너비 조정 */
+    background-color: #212529;
+    color: #fff;
+    padding-top: 1rem;
+    overflow-y: auto;
+  }
+
+  .main-content {
+    margin-left: 250px; /* 사이드바 너비 만큼 여백 주기 */
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.25);
+  }
+
   table {
     border: 1px #a39485 solid;
     font-size: .9em;
     box-shadow: 0 2px 5px rgba(0,0,0,.25);
-    width: 50%; /* 수정된 부분 */
+    width: 100%; /* 폼 전체 너비 */
     border-collapse: collapse;
     border-radius: 5px;
     overflow: hidden;
+    margin-bottom: 20px;
   }
 
   th {
@@ -113,36 +136,74 @@
 </script>
 </head>
 <body>
-<h3>공지사항 작성</h3>
+<div class="sidebar">
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="instructor_index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">AAk 강사메인</div>
+    </a>
 
-<div>
-<form method="post" name="frmDetail" id="frmDetail">
-<input type="hidden" name="num" />
-<tr>
-<td>과목 :</td> 
-<td><input type="text" class="sub_code" id="sub_code" readonly/></td>
-</tr>
-<table>
-<tr>
-<td><strong>제목 :</strong></td> 
-<td colspan="3"><input type="text" class="title" id="title" style="width: 100%;"/></td> 
-</tr>
-<tr>
-<td>내용 :</td> 
-<td colspan="3"><textarea rows="5" style="width: 100%;"></textarea></td>
-</tr>
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
 
-<tr>
-<td colspan="4">
-<input type="button" id="btn_ok" value="작성완료" class="btn btn btn-info btn-sm"/>
-<input type="button" id="btn_cancel" value="취소" class="btn btn btn-info btn-sm"/>
-</td>
-</tr>
-</table>
-	
-	
+    <!-- Nav Item - Dashboard -->
+    <ul class="nav flex-column">
+        <li class="nav-item active">
+            <a class="nav-link"> <!-- href="index.html" -->
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>강의관리</span></a>
+        </li>
 
-</form>
+        <li class="nav-item active">
+            <a class="nav-link">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>강의신청</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>문의사항</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="studentList">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>수강생 관리</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="main-content">
+    <h3>공지사항 작성</h3>
+
+    <form method="post" name="frmDetail" id="frmDetail">
+        <input type="hidden" name="num" />
+        <table>
+            <tr>
+                <td>과목 :</td>
+                <td><input type="text" class="sub_code" id="sub_code" readonly/></td>
+            </tr>
+            <tr>
+                <td><strong>제목 :</strong></td>
+                <td colspan="3"><input type="text" class="title" id="title" style="width: 80%;"/></td>
+            </tr>
+            <tr>
+                <td>내용 :</td>
+                <td colspan="3"><textarea rows="5" style="width: 80%; height:350px"></textarea></td>
+            </tr>
+
+            <tr>
+                <td colspan="4" style="text-align: center;">
+                    <input type="button" id="btn_ok" value="작성완료" class="btn btn btn-info btn-sm"/>
+                    <input type="button" id="btn_cancel" value="취소" class="btn btn btn-info btn-sm"/>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
 </body>
 </html>
