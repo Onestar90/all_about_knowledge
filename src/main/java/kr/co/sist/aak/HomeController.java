@@ -10,10 +10,12 @@ public class HomeController {
 	public String main(){
 		return "student/home";
 	}
+	
 	@GetMapping("/admin_index.do")
 	public String adminMain() {
 		return "/admin/login";
 	}
+	
 	@GetMapping("/instructor_index.do")
 	public String instructorMain() {
 		return "instructor/login";
