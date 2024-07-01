@@ -42,9 +42,9 @@ ORDER BY i.INST_ID desc
 	(#{inst_id}, #{name}, #{email}, #{introduction}, #{image},#{phone},#{education},#{major_subject})
 
 	</insert>
-	<insert id="insertInstructor" parameterType="String">
+	<insert id="insertInstructor" parameterType="InstructorManagementVO">
 	insert into INSTRUCTOR  (INST_ID, PASSWORD, DEL_YN) values
-	(#{inst_id},#{inst_id},'N')
+	(#{inst_id},#{password},'N')
 
 	</insert>
 	<update id="updateInstructorInfo" parameterType="InstructorManagementVO">

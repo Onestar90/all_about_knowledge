@@ -10,5 +10,5 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class InstructorManagementVO {
-	private String inst_id,name,email,introduction,image,phone,education,major_subject,del_yn;
+	private String inst_id,name,email,introduction,image,phone,education,major_subject,del_yn,password;
 }

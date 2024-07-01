@@ -13,4 +13,10 @@ where ID =#{id}
 select * from ADMINPERMISSIONS
 where ID =#{id}
 </select>
+<!-- 관리자 계정 권한 인서트 -->
+<insert id ="insertAdmin" parameterType="AdminLoginVO">
+insert into ADMIN values (#{id},#{password},'ADMIN')
+</insert>
+<!-- <insert id="insertAdminPermission" parameterType="AdminPermissionVO">
+</insert> -->
 </mapper>

@@ -130,7 +130,7 @@ public class InstructorManagementService {
 			jsonTemp = new JSONObject();
 			jsonTemp.put("major_subject", temp.getMajor_subject());
 			jsonTemp.put("subject_count", temp.getSubject_count());
-			jsonTemp.put("percentage", temp.getPercentage());
+			jsonTemp.put("percentage",  String.format("%.2f",temp.getPercentage() ));
 			jsonArr.add(jsonTemp);
 		}
 		jsonObj.put("list", jsonArr);
