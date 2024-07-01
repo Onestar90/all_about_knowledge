@@ -19,13 +19,17 @@ Desc : 사용자(학생)의 마이페이지 상단 네비게이션
             document.body.appendChild(form);
             form.submit();
         });
+        
+        $("#mainhome").click(function(){
+        	window.location.href = '${pageContext.request.contextPath}/index.do';
+        });
     });
 </script>
 
 <nav class="top_nav ui small stackable menu">
   <div class="right menu">
+    <a class="item" id="mainhome">사이트 홈</a>
     <a class="item">개설강좌</a>
-    <a class="item">이용안내</a>
     <a class="item" id="logout">로그아웃</a>
   </div>
 </nav>

@@ -19,7 +19,7 @@ public class MyLectureRepository {
 		List<MyLectureVO> myLectureList = null;
 		SqlSession ss = myBatisDAO.getMyBatisHandler(false);
 		myLectureList = ss.selectList("kr.co.sist.aak.student.mypage.my_lecture.selectProcessLectureList", stdId);
-		
+		ss.close();
 		return myLectureList;
 	}
 	
@@ -27,7 +27,7 @@ public class MyLectureRepository {
 		List<MyLectureVO> myLectureList = null;
 		SqlSession ss = myBatisDAO.getMyBatisHandler(false);
 		myLectureList = ss.selectList("kr.co.sist.aak.student.mypage.my_lecture.selectCompleteLectureList", stdId);
-		
+		ss.close();
 		return myLectureList;
 	}
 	

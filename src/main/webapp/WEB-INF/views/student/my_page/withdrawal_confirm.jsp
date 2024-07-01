@@ -1,7 +1,7 @@
 <!-- 
-Desc : 사용자(학생)의 마이페이지 회원탈퇴 화면
+Desc : 사용자(학생)의 회원 탈퇴 시 비밀번호 검증 화면
 작성자 : 고한별
-작성일 : 2024.06.12
+작성일 : 2024.07.01
  -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" trimDirectiveWhitespaces="true"
@@ -24,18 +24,34 @@ Desc : 사용자(학생)의 마이페이지 회원탈퇴 화면
 		
 		<script type = "text/javascript">
 			$(function() {
-				
 				$('.special.modal')
-				  .modal({
-				    centered: true,
-				    blurring: true
-				  })
-				  .modal('show');
-				
+		            .modal({
+		                centered: true,
+		                blurring: true
+		            })
+		            .modal('show');
+	        
+		        $('#confirm').click(function(){
+		            var password = $('input[type="password"]').val();
+		            $.ajax({
+		                type: "POST",
+		                url: "${pageContext.request.contextPath}/mypage/verify_password.do",
+		                data: { password: password },
+		                success: function(response) {
+		                    if (response === "success") {
+		                        window.location.href = '${pageContext.request.contextPath}/mypage/withdrawal.do';
+		                    }
+		                },
+		                error: function() {
+		                    alert("비밀번호를 확인하세요");
+		                    window.location.href = '${pageContext.request.contextPath}/mypage/withdrawal_confirm.do'
+		                }
+		            });
+		        });
+		        
 		        $('#cancel').click(function(){
 		        	history.back();
-		        });      
-			
+		        });
 			}); // ready
 		</script>
 	</head>
@@ -46,37 +62,38 @@ Desc : 사용자(학생)의 마이페이지 회원탈퇴 화면
 		
 		<!-- 탑 네비게이션 바 -->
 		<jsp:include page="mypage_top_nav.jsp"></jsp:include>
-		
+	
 		<!-- 컨텐츠 영역 -->
 		<article class="my_article">
 			<div class="mypage_content_div">
-				
+			
 				<!-- breadcrumb 표시 -->
 				<div class="ui small breadcrumb div_margin">
 					<a class="section">개인정보관리</a>
 					<i class="right chevron icon divider"></i>
-					<div class="active section">탈퇴</div>
+					<div class="active section">회원탈퇴</div>
 				</div>
-				
-				<!-- 탙퇴 모달 창 -->
+			
+				<!-- 사용자 검증 모달 창 -->
 				<div class="ui special mini modal">
 					<div class="ui icon header">
 						<i class="frown icon"></i> 회원탈퇴
 					</div>
+					
 					<div class="content">
-						<div class="ui form">
-						    <div class="required field">
-						      <label>탈퇴 사유</label>
-						      <input type="text" placeholder="탈퇴사유를 입력해주세요">
-						    </div>
+						<p>현재 비밀번호를 입력하세요</p>
+						<div class="field">
+							<label>비밀번호 : </label>
+							<input type="password">
 						</div>
 					</div>
+					
 					<div class="actions">
 						<div class="ui red cancel inverted button" id="cancel">
-							<i class="remove icon"></i> ㄴㄴ
+							<i class="remove icon"></i> 취소
 						</div>
-						<div class="ui green ok inverted button">
-							<i class="checkmark icon" id="confirm"></i> ㅇㅇ
+						<div class="ui green ok inverted button" id="confirm">
+							<i class="checkmark icon"></i> 확인
 						</div>
 					</div>
 				</div>

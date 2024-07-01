@@ -3,20 +3,21 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.sist.aak.student.mypage.detail_lecture">
-       <select id="selectProcessLectureList" parameterType="String" resultType="MyLectureVO">
-        SELECT cc.CAT_NAME as catName, sc.SUB_TITLE as subTitle, ii.NAME, ss.SUB_CODE as subCode,
-		(COUNT(CASE WHEN ls.STATUS = 'C' THEN 1 END) / NULLIF(s.TOTAL_NO, 0)) * 100 AS percent,
-	    CASE WHEN COALESCE(se.try_count, 0) != 3 AND s.TOTAL_NO = COUNT(CASE WHEN ls.STATUS = 'C' THEN 1 END) 
-	    THEN '응시' ELSE '미응시' END AS examStatus
-	    FROM CAT_CODE cc
-	    JOIN SUBJECT_CODE sc ON cc.CAT_CODE = sc.CAT_CODE
-	    JOIN STD_SUBJECT ss ON ss.SUB_CODE = sc.SUB_CODE
-	    JOIN SUB_INSTRUCTOR si ON si.SUB_CODE = sc.SUB_CODE
-	    JOIN INST_INFO ii ON ii.INST_ID = si.INST_ID
-	    JOIN LEC_STATUS ls ON ls.SUB_CODE = sc.SUB_CODE
-	    JOIN SUBJECT s ON s.SUB_CODE = sc.SUB_CODE
-	    LEFT JOIN STD_EXAM se ON se.SUB_CODE = sc.SUB_CODE AND se.STD_ID = ss.STD_ID
-	    WHERE ss.STD_ID = #{subCode}
-	    GROUP BY cc.CAT_NAME, sc.SUB_TITLE, ii.NAME, s.TOTAL_NO, se.try_count, ss.SUB_CODE
-    </select>
+	<select id="selectDeailLecture" parameterType="map" resultType="DetailLectureVO">
+		SELECT l.TITLE , l.LEC_CODE , ls.STATUS 
+		FROM LECTURE l
+		JOIN SUBJECT s ON s.SUB_CODE = l.SUB_CODE 
+		JOIN LEC_STATUS ls ON l.SUB_CODE = ls.SUB_CODE
+	    WHERE s.SUB_CODE = #{subCode} AND ls.STD_ID = #{stdId}
+		ORDER BY LEC_CODE ASC
+	</select>
+<!-- 	<select id="selectDeailLectureInfo" parameterType="map" resultType="DetailLectureVO">
+	  SELECT s.INTRO , s.GOAL , s.IMAGE , ii.NAME , ii.INTRODUCTION , ii.IMAGE , l.TITLE , l.LEC_CODE , ls.STATUS 
+	  FROM SUBJECT s
+	  JOIN SUB_INSTRUCTOR si ON s.SUB_CODE = si.SUB_CODE 
+	  JOIN INST_INFO ii ON si.INST_ID = ii.INST_ID 
+	  JOIN LECTURE l ON si.SUB_CODE = l.SUB_CODE 
+	  JOIN LEC_STATUS ls ON l.SUB_CODE = ls.SUB_CODE
+	  WHERE s.SUB_CODE = #{subCode} AND ls.STD_ID = #{stdId}
+	</select> -->
 </mapper>

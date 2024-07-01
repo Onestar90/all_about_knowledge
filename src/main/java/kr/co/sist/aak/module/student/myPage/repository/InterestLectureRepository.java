@@ -19,6 +19,7 @@ public class InterestLectureRepository {
         List<InterestLectureVO> interestLectureList = null;
         SqlSession ss = myBatisDAO.getMyBatisHandler(false);
         interestLectureList = ss.selectList("kr.co.sist.aak.student.mypage.interest.selectInterestLectureList", stdId);
+        ss.close();
         return interestLectureList;
     }
 }

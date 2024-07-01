@@ -16,7 +16,7 @@ public class MyDashboardRepository {
 		int count;
 		SqlSession ss = myBatisDAO.getMyBatisHandler(false);
 		count = ss.selectOne("kr.co.sist.aak.student.mypage.dashboard.selectTotalLectureCount", stdId);
-		
+		ss.close();
 		return count;
 	}
 	
@@ -24,6 +24,7 @@ public class MyDashboardRepository {
         int count;
         SqlSession ss = myBatisDAO.getMyBatisHandler(false);
         count = ss.selectOne("kr.co.sist.aak.student.mypage.dashboard.selectProcessLectureCount", stdId);
+        ss.close();
         return count;
     }
 
@@ -31,6 +32,7 @@ public class MyDashboardRepository {
         int count;
         SqlSession ss = myBatisDAO.getMyBatisHandler(false);
         count = ss.selectOne("kr.co.sist.aak.student.mypage.dashboard.selectCompleteLectureCount", stdId);
+        ss.close();
         return count;
     }
 	

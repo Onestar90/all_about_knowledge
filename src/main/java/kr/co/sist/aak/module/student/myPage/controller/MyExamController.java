@@ -30,4 +30,15 @@ public class MyExamController {
 		return "student/my_page/exam";
 	}
 	
+	// 시험 제출...
+	// 과목코드 시험문제번호 일치하는 곳의 정답이 라디오버튼이랑 같아야한다
+	// 같으면 스코어++ 인데 시험 몇문제냐...5개라네요
+	// 자동채점해서 성적 모달
+	// 완료된 강의에서는 그럼 성적이 보야모;ㅐ롲ㅁ;ㅕㅑㄷ뢔;모런우리ㅏㅋ시발
+	// 강의 상세페이지에서 보여준다
+	
+	public int examSubmit() {
+		int result = 0;
+		return result;
+	}
 }

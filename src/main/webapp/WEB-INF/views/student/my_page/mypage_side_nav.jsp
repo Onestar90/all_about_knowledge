@@ -30,7 +30,7 @@ Desc : 사용자(학생)의 마이페이지 좌측 네비게이션
             window.location.href = '${pageContext.request.contextPath}/mypage/edit_information.do';
         });
 		$('#withdraw').click(function(){
-            window.location.href = '${pageContext.request.contextPath}/mypage/withdrawal.do';
+            window.location.href = '${pageContext.request.contextPath}/mypage/withdrawal_confirm.do';
         });
 	}); // ready
 </script>

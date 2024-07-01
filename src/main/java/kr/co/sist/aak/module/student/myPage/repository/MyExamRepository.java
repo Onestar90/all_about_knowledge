@@ -19,7 +19,7 @@ public class MyExamRepository {
 		List<MyExamVO> myLectureList = null;
 		SqlSession ss = myBatisDAO.getMyBatisHandler(false);
 		myLectureList = ss.selectList("kr.co.sist.aak.student.mypage.exam.selectExam", subCode);
-		
+		ss.close();
 		return myLectureList;
 	}
 

@@ -36,13 +36,13 @@ Desc : 사용자(학생)의 정보를 수정하는 페이지
 				          }]
 				      },
 				      
-				      regex: {
+/* 				      regex: {
 				        identifier  : 'name',
 				        rules: [{
 				            type   : 'regExp[/^[ㄱ-ㅎ|가-힣]{2,10}$/]',
 				            prompt : '이름은 한글 2-10자 이내로 입력가능합니다'
 				          }]
-				      }
+				      } */
 				    }
 				  });
 			}); // ready
@@ -74,7 +74,7 @@ Desc : 사용자(학생)의 정보를 수정하는 페이지
 					    	<div class="field"></div>
 						    <div class="field">
 								<label>아이디</label>
-								<input name="userId" type="text" value="<sec:authentication property='name'/>" readonly>
+								<input name="userId" type="text" placeholder="<sec:authentication property='name'/>" readonly="">
 						    </div>
 						</div>
 						
@@ -82,7 +82,7 @@ Desc : 사용자(학생)의 정보를 수정하는 페이지
 					    	<div class="field"></div>
 						    <div class="field">
 							    <label>이름</label>
-							    <input name="name" type="text">
+							    <input name="name" type="text" placeholder="db이름" readonly="">
 							</div>
 						</div>
 			
