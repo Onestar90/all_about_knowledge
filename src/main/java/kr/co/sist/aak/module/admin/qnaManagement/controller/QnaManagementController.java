@@ -17,7 +17,7 @@ import kr.co.sist.aak.module.admin.qnaManagement.service.QnaManagementService;
 @Controller
 public class QnaManagementController {
 	
-	
+	@Autowired(required = false)
 	private QnaManagementService qms;
 	
 	

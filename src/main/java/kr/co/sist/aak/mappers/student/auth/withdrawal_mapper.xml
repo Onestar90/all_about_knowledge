@@ -6,11 +6,11 @@
 <mapper namespace="kr.co.sist.aak.student.auth.exit">
 	<!-- STUDENT -->
     <update id="deleteStudent" parameterType="String">
-		UPDATE STUDENT SET DEL_YN = 'Y' WHERE STD_ID = #{stdId}
+		UPDATE STUDENT SET DEL_YN = 'Y' WHERE STD_ID = #{stdId};
     </update>
     
     <!-- WITHDRAWL -->
-    <insert id="insertExitReason" parameterType="WithdrawalVO">
+    <insert id="createExit" parameterType="WithdrawalVO">
     	INSERT INTO WITHDRAWAL (STD_ID, REASON) VALUES (#{stdId}, #{reason})
     </insert>
 

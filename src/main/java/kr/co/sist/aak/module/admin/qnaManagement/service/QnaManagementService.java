@@ -13,7 +13,7 @@ import kr.co.sist.aak.domain.admin.vo.QnaManagementVO;
 import kr.co.sist.aak.module.admin.qnaManagement.dao.QnaManagementDAO;
 @Service
 public class QnaManagementService {
-	
+	@Autowired(required = false)
 	private QnaManagementDAO qmDAO;
 	
 	public List<QnaManagementDomain> searchQna(){

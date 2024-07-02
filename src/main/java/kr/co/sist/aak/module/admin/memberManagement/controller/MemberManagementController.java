@@ -19,7 +19,7 @@ import kr.co.sist.aak.module.admin.memberManagement.service.MemberManagementServ
 @Controller
 public class MemberManagementController {
 	
-
+	@Autowired(required = false)
 	private MemberManagementService mms;
 	
 	@GetMapping("manage_memberlist.do")

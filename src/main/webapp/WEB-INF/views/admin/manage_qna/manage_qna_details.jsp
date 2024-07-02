@@ -3,10 +3,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<style>
-th,td,tr{font-size: 13px;}
-a {text-decoration: none;}
-</style>
+
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,8 +28,14 @@ a {text-decoration: none;}
     <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/bootstrap.min.css">
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="http://localhost/all_about_knowledge/front/admin/css/tooplate.css">
-
-
+	<style>
+	.right {
+  		 text-align: right;
+		}
+	
+	
+	
+	</style>
 
 <body id="reportsPage">
     <div class="" id="home">
@@ -37,7 +43,8 @@ a {text-decoration: none;}
             <div class="row">
                 <div class="col-12">
                     <nav class="navbar navbar-expand-xl navbar-light bg-light">
-                        <a class="navbar-brand" href="adminindex.do">
+                        <a class="brand-logo" href="adminindex.do">
+                            <!-- <i class="fas fa-3x fa-tachometer-alt tm-site-icon"></i> -->
                             <h3 class="tm-site-title mb-0">All About Knowledge</h3>
                         </a>
                         <button class="navbar-toggler ml-auto mr-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -45,10 +52,8 @@ a {text-decoration: none;}
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
-                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mx-auto">
-                              <c:if test="${sessionScope.adminPermission.category_management == 'Y'}">
-    
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#void" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">교육과목관리
@@ -59,37 +64,30 @@ a {text-decoration: none;}
                                         <a class="dropdown-item" href="manage_lecture.do">강의신청리스트</a>
                                     </div>
                                 </li>
-                                </c:if>
-                                <c:if test="${sessionScope.adminPermission.member_management == 'Y'}">
-                                <li class="nav-item">
-                                    <a class="nav-link " href="manage_memberlist.do">
-                                        회원 관리
-                                    </a>
+                                 <li class="nav-item" >
+                                    <a class="nav-link "href="manage_memberlist.do">회원 리스트</a>
+                                 
                                 </li>
-                                </c:if>
-                               <c:if test="${sessionScope.adminPermission.instructor_management == 'Y'}">
                                 <li class="nav-item " >
                                     <a class="nav-link " href="manage_instructor.do">강사 관리
                                         </a>
                                 </li>
-								</c:if>
-								<c:if test="${sessionScope.adminPermission.qna_management == 'Y'}">
-                                
-                                <li class="nav-item active  ">
-                                    <a class="nav-link" href="manage_qna.do">문의 관리</a>
+
+                                    <li class="nav-item active  " >
+                                    
+                                        <a class="nav-link" href="manage_qna.do">문의 리스트</a>
+                                   
                                 </li>
-                                </c:if>
-                                <c:if test="${sessionScope.adminPermission.notice_management == 'Y'}">
                                 <li class="nav-item ">
                                     <a class="nav-link " href="manage_notification.do">
                                         공지사항 관리
                                     </a>
                                 </li>
-                                </c:if>
+
                             </ul>
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex" href="admin_index_logout.do">
+                                    <a class="nav-link d-flex" href="admin_index.do">
                                         <i class="far fa-user mr-2 tm-logout-icon"></i>
                                         <span>Logout</span>
                                     </a>
@@ -99,19 +97,12 @@ a {text-decoration: none;}
                     </nav>
                 </div>
             </div>
+             </div>
             </div>
              <!-- row -->
                  <div class="container" style="padding: 1rem">
             
-                <div class="container" style="padding: 1rem">
-                <div class="bg-white tm-block col-12" style="width: 20vw;border: 2px solid skyblue;position: fixed;height: 85%;padding-bottom: 20px;padding-top: 20px;" >
-                 <div>
-                <table class ="table table-hover">
-                <tr><td>${ adminid }님, 환영합니다 !</td></tr>
-                </table>
-                </div>
-                </div>
-                
+               <div class="bg-white tm-block col-12" style="width: 20%;border: 2px solid skyblue;position: fixed;height: 85%;padding-bottom: 20px;padding-top: 20px;" ></div>
                 <div class="bg-white tm-block col-12" style= "margin-left: 25%; width:auto" >
               
           	 <form action="manage_qna_details.do" method="post" id ="frmPost" style="width: 1100px;margin-inline: auto;">     

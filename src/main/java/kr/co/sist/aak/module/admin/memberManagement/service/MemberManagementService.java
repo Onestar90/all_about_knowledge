@@ -13,7 +13,7 @@ import kr.co.sist.aak.domain.admin.vo.MemberManagementVO;
 import kr.co.sist.aak.module.admin.memberManagement.dao.MemberManagementDAO;
 @Service
 public class MemberManagementService {
-
+	@Autowired(required = false)
 	private MemberManagementDAO mmDAO;
 	
 	public List<MemberManagementDomain> searchMember() {

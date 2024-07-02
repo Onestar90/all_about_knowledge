@@ -19,7 +19,7 @@ import kr.co.sist.aak.module.admin.lectureManagement.service.LectureManagementSe
 @Controller
 public class LectureManagementController {
 	
-	
+	@Autowired(required = false)
 	private LectureManagementService lms;
 	
 	@GetMapping("manage_lecture.do")

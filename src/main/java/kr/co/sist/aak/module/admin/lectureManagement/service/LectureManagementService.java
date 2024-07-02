@@ -17,7 +17,7 @@ import kr.co.sist.aak.module.admin.lectureManagement.dao.LectureManagementDAO;
 
 @Service
 public class LectureManagementService{
-
+	@Autowired(required = false)
 	private LectureManagementDAO lmDAO;
 	
 	public List<SubjectManagementDomain> searchSubject(){
