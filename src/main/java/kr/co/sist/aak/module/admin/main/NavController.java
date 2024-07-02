@@ -6,11 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class NavController {
 	
-	@GetMapping("manage_lecture.do")
-	public String managelecture() {
-		
-		return "/admin/manage_lecture";
-	}
+	
 	
 
 }

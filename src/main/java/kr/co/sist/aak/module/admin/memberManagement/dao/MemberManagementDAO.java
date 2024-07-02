@@ -54,10 +54,7 @@ public class MemberManagementDAO {
 		return mmDomain;
 	
 	}
-	
-	
-	
-	
+
 	public int updateMember(MemberManagementVO mmVO) {
 	
 		int cnt = 0;
@@ -66,16 +63,32 @@ public class MemberManagementDAO {
 		cnt = ss.update("kr.co.sist.aak.admin4.updateMember",mmVO);
 		mbDAO.closeHanlder(ss);
 		
-		
-		
-		
+
 		return cnt;
 		
 	}
 	
+	public int selectNonMember()throws PersistenceException{
+		int cnt =0;
+		MybatisDAO mbDAO = MybatisDAO.getInstance();
+		SqlSession ss = mbDAO.getMyBatisHandler(false);
+		
+		cnt = ss.selectOne("kr.co.sist.aak.admin4.nonMember");
+		mbDAO.closeHanlder(ss);
+		return cnt;
+		
+	}
 	
-	
-	
+	public int selectPreMember()throws PersistenceException{
+		int cnt =0;
+		MybatisDAO mbDAO = MybatisDAO.getInstance();
+		SqlSession ss = mbDAO.getMyBatisHandler(false);
+		
+		cnt = ss.selectOne("kr.co.sist.aak.admin4.PreMember");
+		mbDAO.closeHanlder(ss);
+		return cnt;
+		
+	}
 	
 	
 	

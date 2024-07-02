@@ -3,6 +3,7 @@ package kr.co.sist.aak.module.admin.memberManagement.service;
 import java.util.List;
 
 import org.apache.ibatis.exceptions.PersistenceException;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,20 @@ public class MemberManagementService {
 		return cnt;
 	}
 	
-	
+	public String searchMembers() {
+		int non=0;
+		int pre=0;
+		JSONObject jsonObj = new JSONObject();
+		try {
+			non = mmDAO.selectNonMember();
+			pre = mmDAO.selectPreMember();
+			jsonObj.put("n", non);
+			jsonObj.put("p", pre);
+		}catch (PersistenceException e) {
+			e.printStackTrace();
+		}
+		return jsonObj.toJSONString();
+	}
 	
 	
 	

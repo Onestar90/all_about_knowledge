@@ -1,36 +1,73 @@
 package kr.co.sist.aak.domain.admin.vo;
 
-import java.sql.Date;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
+
 public class LectureManagementVO {
 	
 	private String 
-	subject_code
-	,subject_name
-	,Instructor_name
-	,Instructor_id,category_name
-	,category_code
-	,intro,goal
-	,status
-	,reason
-	,lecture_code
-	,lecture_title
-	,lecture_file_name
-	,lecture_content ;
-
-	private int  total_no, total_time;
-	private Date create_date;
-
+	sub_code,
+	lec_code,
+	title,
+	f_name,
+	lec_explain;
 	
+	private int time;
 
+	@Override
+	public String toString() {
+		return "LectureManagementVO [sub_code=" + sub_code + ", lec_code=" + lec_code + ", title=" + title + ", f_name="
+				+ f_name + ", lec_explain=" + lec_explain + ", time=" + time + "]";
+	}
+
+	public String getSub_code() {
+		return sub_code;
+	}
+
+	public void setSub_code(String sub_code) {
+		this.sub_code = sub_code;
+	}
+
+	public String getLec_code() {
+		return lec_code;
+	}
+
+	public void setLec_code(String lec_code) {
+		this.lec_code = lec_code;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getF_name() {
+		return f_name;
+	}
+
+	public void setF_name(String f_name) {
+		this.f_name = f_name;
+	}
+
+	public String getLec_explain() {
+		return lec_explain;
+	}
+
+	public void setLec_explain(String lec_explain) {
+		this.lec_explain = lec_explain;
+	}
+
+	public int getTime() {
+		return time;
+	}
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+	
+	
 	
 }

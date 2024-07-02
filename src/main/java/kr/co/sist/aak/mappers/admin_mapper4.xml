@@ -41,9 +41,19 @@
 	where std_id = #{std_id}
 	</update>
 	
+	<!-- 현재 학생 수 -->
+	<select id="PreMember" resultType ="int">
+	select count(std_id)
+	from student
+	where del_yn = 'Y'
+	</select>
 	
-	
-	
+	<!-- 탈퇴 학생 수 -->
+	<select id="PreMember" resultType ="int">
+	select count(std_id)
+	from student
+	where del_yn = 'N'
+	</select>
 	
 	
 	
