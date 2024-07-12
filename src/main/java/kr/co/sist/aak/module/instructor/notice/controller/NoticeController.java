@@ -87,11 +87,11 @@ public class NoticeController {
 	          
 	        }
 	    } catch (Exception e) {
-	        // 예외 처리
+	    
 	        model.addAttribute("error", "An error occurred: " + e.getMessage());
 	    }
 
-	    // 공지 작성 결과 페이지로 리다이렉트
+	   
 	    return "/instructor/notice/notice_write_result";
 	}
 	

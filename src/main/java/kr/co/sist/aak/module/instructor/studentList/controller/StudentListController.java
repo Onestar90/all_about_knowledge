@@ -30,28 +30,28 @@ public class StudentListController {
 	    List<StudentListDomain> list;
 	    
 	    try {
-	        if ("¾ÆÀÌµğ".equals(searchType) && searchKeyword != null && !searchKeyword.trim().isEmpty()) {
-	            list = sls.searchById(searchKeyword); // ¾ÆÀÌµğ·Î °Ë»ö
-	        } else if ("°ú¸ñ".equals(searchType) && searchKeyword != null && !searchKeyword.trim().isEmpty()) {
-	            list = sls.searchBySubCode(searchKeyword); // °ú¸ñ ÄÚµå·Î °Ë»ö
-	        } else if ("ÀÌ¸§".equals(searchType) && searchKeyword != null && !searchKeyword.trim().isEmpty()) {
-	            list = sls.searchByname(searchKeyword); // ÀÌ¸§À¸·Î °Ë»ö
+	        if ("ì•„ì´ë””".equals(searchType) && searchKeyword != null && !searchKeyword.trim().isEmpty()) {
+	            list = sls.searchById(searchKeyword); // ì•„ì´ë””ë¡œ ê²€ìƒ‰
+	        } else if ("ê³¼ëª©".equals(searchType) && searchKeyword != null && !searchKeyword.trim().isEmpty()) {
+	            list = sls.searchBySubCode(searchKeyword); // ê³¼ëª© ì½”ë“œë¡œ ê²€ìƒ‰
+	        } else if ("ì´ë¦„".equals(searchType) && searchKeyword != null && !searchKeyword.trim().isEmpty()) {
+	            list = sls.searchByname(searchKeyword); // ì´ë¦„ìœ¼ë¡œ ê²€ìƒ‰
 	        } else {
-	            list = sls.searchList(); // ±âº»ÀûÀ¸·Î ÀüÃ¼ ¸ñ·Ï Á¶È¸
+	            list = sls.searchList(); // ê¸°ë³¸ì ìœ¼ë¡œ ì „ì²´ ëª©ë¡ ì¡°íšŒ
 	        }
 	        
 	        model.addAttribute("listStudent", list);
 	        model.addAttribute("searchType", searchType);
 	        model.addAttribute("searchKeyword", searchKeyword);
 	    } catch (PersistenceException e) {
-	        model.addAttribute("error", "°Ë»ö Áß ¿À·ù°¡ ¹ß»ıÇß½À´Ï´Ù: " + e.getMessage());
+	        model.addAttribute("error", "ê²€ìƒ‰ ì¤‘ ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤: " + e.getMessage());
 	        list = new ArrayList<>();
 	    }
 	    
-	    // µğ¹ö±ëÀ» À§ÇÑ ·Î±× Ãß°¡
-	    System.out.println("°Ë»ö À¯Çü: " + searchType);
-	    System.out.println("°Ë»ö¾î: " + searchKeyword);
-	    System.out.println("°á°ú °³¼ö: " + (list != null ? list.size() : 0));
+	    // ë””ë²„ê¹…ì„ ìœ„í•œ ë¡œê·¸ ì¶”ê°€
+	    System.out.println("ê²€ìƒ‰ ìœ í˜•: " + searchType);
+	    System.out.println("ê²€ìƒ‰ì–´: " + searchKeyword);
+	    System.out.println("ê²°ê³¼ ê°œìˆ˜: " + (list != null ? list.size() : 0));
 	    
 	    return "/instructor/studentList";
 	}

@@ -24,7 +24,7 @@ public class LectureService {
 
 	@Autowired(required = false)
 	private LectureDAO ltDAO;
-	//°­ÀÇ°ü¸® ¸®½ºÆ® 
+
 	public List<LectureDomain> lectureAll(){
 		
 		List<LectureDomain> list=null;
@@ -38,7 +38,7 @@ public class LectureService {
 		
 		return list;
 	}
-	//°­ÀÇ°ü¸® ¸®½ºÆ® 
+
 	public String selectSubtitle(String subCode){
 		
 		List<LectureDomain> list=null;
@@ -64,7 +64,7 @@ public class LectureService {
 		return jsonObject.toJSONString();
 	}
 	
-	//½ÂÀÎ¿©ºÎ¿¡ µû¸¥ °Ë»ö°á°ú
+
 	public String searchQnaStatus(int status) {
 		List<LectureDomain> list = null;
 		JSONObject jsonObj = new JSONObject();
@@ -88,9 +88,9 @@ public class LectureService {
 
 				String status1 = temp.getStatus();
 				if (status1.equals("Y")) {
-					status1 = "½ÂÀÎ";
+					status1 = "ë‹µë³€ì™„ë£Œ";
 				}else {
-					status1 = "¹Ý·Á";
+					status1 = "ë‹µë³€ëŒ€ê¸°ì¤‘";
 				}
 
 				jsonTemp.put("status", status1);
@@ -102,7 +102,7 @@ public class LectureService {
 
 	}
 	
-	//Á¦¸ñ¿¡ ´ëÇÑ °Ë»ö°á°ú
+
 	public List<LectureDomain> searchLectureTitle(String sub_title) {
 		List<LectureDomain> list = null;
 
@@ -119,9 +119,9 @@ public class LectureService {
 		} finally {
 			for (LectureDomain temp : list) {
 				if (temp.getStatus().equals("Y")) {
-					temp.setStatus("½ÂÀÎ");
+					temp.setStatus("ï¿½ï¿½ï¿½ï¿½");
 				} else {
-					temp.setStatus("¹Ý·Á");
+					temp.setStatus("ï¿½Ý·ï¿½");
 
 				}
 			}
@@ -132,7 +132,7 @@ public class LectureService {
 
 	}
 	
-	//°­ÀÇ°ü¸® »ó¼¼
+
 	public LectureDomain lectureDetail(String sub_code) {
 		LectureDomain list=null;
 		
@@ -148,7 +148,7 @@ public class LectureService {
 		return list;
 	}
 
-	//°­ÀÇ »ó¼¼Á¤º¸
+
 	public LectureVO lectureInfo(String sub_code) {
 		LectureVO lecVO=null;
 		
@@ -160,7 +160,7 @@ public class LectureService {
 		return lecVO;
 	}
 	
-	//°­ÀÇ¸ñÂ÷
+
 	public LectureLessonVO lecLesson(String sub_code) {
 		LectureLessonVO lecLessVO=null;
 		
@@ -173,7 +173,7 @@ public class LectureService {
 		return lecLessVO;
 	}
 	
-	//°ú¸ñ°øÁö»çÇ×
+	
 	public NoticeDomain noticeone(String sub_code) {
 		NoticeDomain ntd=null;
 		
@@ -186,7 +186,7 @@ public class LectureService {
 		return ntd;
 	}
 	
-	//»óÀ§Ä«Å×°í¸®
+
 	public List<LectureDomain> selectCategory(){
 		List<LectureDomain> list= null;
 		

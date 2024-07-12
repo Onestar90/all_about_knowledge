@@ -73,26 +73,24 @@ public class ExamController {
 	            eVO.setEX_3(EX_3[i]);
 	            eVO.setEX_4(EX_4[i]);
 
-	            // SOLUTION 처리
+	            
 	            if (SOLUTION != null && SOLUTION.length > i) {
 	                eVO.setSOLUTION(SOLUTION[i]);
 	            } else {
-	                // SOLUTION이 null이거나 길이가 충분하지 않은 경우 처리
-	                // 예: 유효성 검사에서 모든 문제에 대해 정답을 선택하도록 확인
-	                // 여기서는 예외 처리 또는 기본값 설정 등을 고려
-	                eVO.setSOLUTION(null); // 예시로 null 설정
+	                
+	                eVO.setSOLUTION(null); 
 	            }
 
 	            int cnt = es.insertExam(eVO);
 	            if (cnt == 1) {
 	                model.addAttribute("eVO", eVO);
 	            } else {
-	                // 처리 실패 시 예외 처리
+	                
 	            }
 	        }
 	    } catch (Exception e) {
 	        e.printStackTrace();
-	        // 예외 처리
+	       
 	    }
 
 	    return "/instructor/exam/exam_write_result";
@@ -103,7 +101,7 @@ public class ExamController {
 		
 		List<ExamDomain> list=es.searchList1();
 		model.addAttribute("examlist",list);
-		System.out.println("update쪽 리스트"+list);
+		System.out.println("update占쏙옙 占쏙옙占쏙옙트"+list);
 		
 		return "/instructor/exam/exam_update";
 	}
