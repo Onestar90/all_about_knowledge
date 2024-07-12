@@ -101,7 +101,7 @@ public class ExamController {
 		
 		List<ExamDomain> list=es.searchList1();
 		model.addAttribute("examlist",list);
-		System.out.println("update�� ����Ʈ"+list);
+		System.out.println("update쪽 리스트Ʈ"+list);
 		
 		return "/instructor/exam/exam_update";
 	}
