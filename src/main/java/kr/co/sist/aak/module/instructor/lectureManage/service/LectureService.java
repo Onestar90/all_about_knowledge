@@ -24,7 +24,7 @@ public class LectureService {
 
 	@Autowired(required = false)
 	private LectureDAO ltDAO;
-
+	//���ǰ��� ����Ʈ 
 	public List<LectureDomain> lectureAll(){
 		
 		List<LectureDomain> list=null;
@@ -38,7 +38,7 @@ public class LectureService {
 		
 		return list;
 	}
-
+	//���ǰ��� ����Ʈ 
 	public String selectSubtitle(String subCode){
 		
 		List<LectureDomain> list=null;
@@ -64,7 +64,7 @@ public class LectureService {
 		return jsonObject.toJSONString();
 	}
 	
-
+	//���ο��ο� ���� �˻����
 	public String searchQnaStatus(int status) {
 		List<LectureDomain> list = null;
 		JSONObject jsonObj = new JSONObject();
@@ -88,9 +88,9 @@ public class LectureService {
 
 				String status1 = temp.getStatus();
 				if (status1.equals("Y")) {
-					status1 = "답변완료";
+					status1 = "����";
 				}else {
-					status1 = "답변대기중";
+					status1 = "�ݷ�";
 				}
 
 				jsonTemp.put("status", status1);
@@ -102,7 +102,7 @@ public class LectureService {
 
 	}
 	
-
+	//���� ���� �˻����
 	public List<LectureDomain> searchLectureTitle(String sub_title) {
 		List<LectureDomain> list = null;
 
@@ -132,7 +132,7 @@ public class LectureService {
 
 	}
 	
-
+	//���ǰ��� ��
 	public LectureDomain lectureDetail(String sub_code) {
 		LectureDomain list=null;
 		
@@ -148,7 +148,7 @@ public class LectureService {
 		return list;
 	}
 
-
+	//���� ������
 	public LectureVO lectureInfo(String sub_code) {
 		LectureVO lecVO=null;
 		
@@ -160,7 +160,7 @@ public class LectureService {
 		return lecVO;
 	}
 	
-
+	//���Ǹ���
 	public LectureLessonVO lecLesson(String sub_code) {
 		LectureLessonVO lecLessVO=null;
 		
@@ -173,7 +173,7 @@ public class LectureService {
 		return lecLessVO;
 	}
 	
-	
+	//�����������
 	public NoticeDomain noticeone(String sub_code) {
 		NoticeDomain ntd=null;
 		
@@ -186,7 +186,7 @@ public class LectureService {
 		return ntd;
 	}
 	
-
+	//����ī�װ�
 	public List<LectureDomain> selectCategory(){
 		List<LectureDomain> list= null;
 		
