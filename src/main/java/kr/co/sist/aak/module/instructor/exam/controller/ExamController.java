@@ -103,6 +103,7 @@ public class ExamController {
 		model.addAttribute("examlist",list);
 		System.out.println("update쪽 리스트Ʈ"+list);
 		
+		
 		return "/instructor/exam/exam_update";
 	}
 	
